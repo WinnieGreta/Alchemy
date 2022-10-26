@@ -21,6 +21,8 @@ public class MainMenuController : MonoBehaviour
 
     public void NewGameButtonClick()
     {
+        GameObject newDialog = Instantiate(newGameDialog, new Vector3(0, 0, 0), Quaternion.identity);
+        newDialog.transform.SetParent(GameObject.Find("Popout Dialog Container").transform, false);
         newGameDialog.SetActive(true);
     }
 

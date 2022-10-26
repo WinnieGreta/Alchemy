@@ -22,7 +22,8 @@ public class NewGameDiailogController : MonoBehaviour
 
     public void NewGameDialogNo()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     private void Awake()
