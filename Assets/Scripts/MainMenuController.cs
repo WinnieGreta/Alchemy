@@ -36,6 +36,7 @@ public class MainMenuController : MonoBehaviour
 
     public void ExitButtonClick()
     {
+        AudioManager.instance.PlaySound("ButtonPress");
         Debug.Log("Me quitting!");
         Application.Quit();
     }

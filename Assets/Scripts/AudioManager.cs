@@ -32,8 +32,8 @@ public class AudioManager : MonoBehaviour
         mVol = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
         eVol = PlayerPrefs.GetFloat("EffectsVolume", 0.75f);
 
-        createAudioSources(effects, eVol);
-        createAudioSources(music, mVol);
+        CreateAudioSources(effects, eVol);
+        CreateAudioSources(music, mVol);
     }
 
     public void PlaySound(string name)
@@ -44,7 +44,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogError("Unable to play sound effect " + name);
             return;
         }
-        s.source.Play();
+        s.source.PlayOneShot(s.clip);
     }
 
     public void PlayMusic(string name)
@@ -70,7 +70,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void musicVolumeChanged()
+    public void MusicVolumeChanged()
     {
         foreach (Sound m in music)
         {
@@ -79,7 +79,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void effectVolumeChanged()
+    public void EffectVolumeChanged()
     {
         eVol = PlayerPrefs.GetFloat("EffectsVolume", 0.75f);
         foreach (Sound s in effects)
@@ -89,7 +89,7 @@ public class AudioManager : MonoBehaviour
         effects[0].source.Play();
     }
 
-    private void createAudioSources(Sound[] sounds, float volume)
+    private void CreateAudioSources(Sound[] sounds, float volume)
     {
         foreach (Sound s in sounds)
         {
