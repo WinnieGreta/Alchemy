@@ -721,8 +721,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _newGameLevel: 
   newGameDialog: {fileID: 2426521105395751056, guid: b08605eb84a80494ea1c7c56740ba9f7, type: 3}
+  optionsDialog: {fileID: 1615863657808123004, guid: 16c038bc23eba2c44bd19cc104aa015b, type: 3}
   newGameButton: {fileID: 741741555}
   continueGameButton: {fileID: 1512113786}
+  optionsButton: {fileID: 2053757912}
   exitButton: {fileID: 12837542}
   gameExists: 0
 --- !u!1 &991671635
@@ -769,6 +771,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects:
+  - name: SoundCheck
+    clip: {fileID: 8300000, guid: 7a892771bf3a0f544bb49904240903d7, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
   - name: ButtonPress
     clip: {fileID: 8300000, guid: 313f7c4f537cd5c498feb8d98fa89ce8, type: 3}
     volume: 0.5
@@ -788,6 +796,7 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  mVol: 0
 --- !u!1 &1163595074
 GameObject:
   m_ObjectHideFlags: 0

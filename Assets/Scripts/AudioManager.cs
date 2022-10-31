@@ -86,7 +86,7 @@ public class AudioManager : MonoBehaviour
         {
             s.source.volume = s.volume * eVol;
         }
-        effects[0].source.Play();
+        //effects[0].source.Play();
     }
 
     private void CreateAudioSources(Sound[] sounds, float volume)

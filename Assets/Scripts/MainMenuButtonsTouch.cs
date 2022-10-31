@@ -14,9 +14,9 @@ public class MainMenuButtonsTouch : MonoBehaviour, IPointerEnterHandler
             AudioManager.instance.PlaySound("ButtonTouch");
             //Debug.Log("Active button touch");
         } 
-        else
+        /* else
         {
             Debug.Log("Not active button touched");
-        }
+        } */
     }
 }

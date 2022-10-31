@@ -12,12 +12,16 @@ public class MainMenuController : MonoBehaviour
     [Header("Dialogs To Open")]
     [SerializeField]
     private GameObject newGameDialog;
+    [SerializeField]
+    private GameObject optionsDialog;
 
     [Header("Buttons To Click")]
     [SerializeField]
     private Button newGameButton;
     [SerializeField]
     private Button continueGameButton;
+    [SerializeField]
+    private Button optionsButton;
     [SerializeField]
     private Button exitButton;
 
@@ -34,6 +38,14 @@ public class MainMenuController : MonoBehaviour
         newGameDialog.SetActive(true);
     }
 
+    public void OptionsButtonClick()
+    {
+        AudioManager.instance.PlaySound("ButtonPress");
+        GameObject optDialog = Instantiate(optionsDialog, new Vector3(0, 0, 0),Quaternion.identity);
+        optDialog.transform.SetParent(GameObject.Find("Popout Dialog Container").transform, false);
+        optionsDialog.SetActive(true);
+    }
+
     public void ExitButtonClick()
     {
         AudioManager.instance.PlaySound("ButtonPress");
@@ -45,6 +57,7 @@ public class MainMenuController : MonoBehaviour
     {
         newGameButton.onClick.AddListener(NewGameButtonClick);
         exitButton.onClick.AddListener(ExitButtonClick);
+        optionsButton.onClick.AddListener(OptionsButtonClick);
         
         //TODO: make continueGameButton not interactable if there is no save file
         if (!gameExists)
