@@ -792,11 +792,10 @@ MonoBehaviour:
   music:
   - name: MainMenu
     clip: {fileID: 8300000, guid: 2b44924fcc147a140aa8197ce9859b23, type: 3}
-    volume: 0.5
+    volume: 0.35
     pitch: 1
     source: {fileID: 0}
     loop: 0
-  mVol: 0
 --- !u!1 &1163595074
 GameObject:
   m_ObjectHideFlags: 0

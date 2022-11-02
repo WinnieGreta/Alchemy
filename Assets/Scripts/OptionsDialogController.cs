@@ -26,9 +26,43 @@ public class OptionsDialogController : MonoBehaviour
 
     private bool changesMade;
 
+    [Header("Apply Dialog")]
+    [SerializeField]
+    private GameObject applyDialog;
+
+    //temporary saved volume values before applying changes
+    [HideInInspector]
+    public float prevEffectVol;
+    [HideInInspector]
+    public float prevMusicVol;
+
     private void OptionsBackButton()
     {
+        if (changesMade)
+        {
+            GameObject newDialog = Instantiate(applyDialog, new Vector3(0, 0, 0), Quaternion.identity);
+            newDialog.transform.SetParent(GameObject.Find("Popout Dialog Container").transform, false);
+            applyDialog.SetActive(true);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void CloseOptionsDialog()
+    {
+        changesMade = false;
         Destroy(gameObject);
+    }
+
+    private void OptionsDefaultButton()
+    {
+        SetMusicVolume(0.3f);
+        SetEffectsVolume(0.6f);
+        SetVolume();
+        VolumeApply();
+        //after activation stays selected WHY?
     }
 
     public void SetMusicVolume(float volume)
@@ -50,8 +84,8 @@ public class OptionsDialogController : MonoBehaviour
 
     public void VolumeApply()
     {
-        //PlayerPrefs.SetFloat("MusicVolume", AudioListener.volume);
-        //PlayerPrefs.SetFloat("EffectsVolume", AudioListener.volume);
+        prevEffectVol = PlayerPrefs.GetFloat("EffectsVolume");
+        prevMusicVol = PlayerPrefs.GetFloat("MusicVolume");
         changesMade = false;
     }
 
@@ -67,9 +101,24 @@ public class OptionsDialogController : MonoBehaviour
     private void Awake()
     {
         SetVolume();
+        VolumeApply();
         backButton.onClick.AddListener(OptionsBackButton);
         musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
         effectsVolumeSlider.onValueChanged.AddListener(SetEffectsVolume);
+        applyButton.onClick.AddListener(VolumeApply);
+        defaultButton.onClick.AddListener(OptionsDefaultButton);
+    }
+
+    private void Update()
+    {
+        if(!changesMade)
+        {
+            applyButton.interactable = false;
+        }
+        else
+        {
+            applyButton.interactable = true;
+        }
     }
 
 }

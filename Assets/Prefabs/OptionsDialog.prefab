@@ -262,6 +262,9 @@ MonoBehaviour:
   applyButton: {fileID: 1615863658220340594}
   backButton: {fileID: 5115049404735487092}
   defaultButton: {fileID: 1615863659883274994}
+  applyDialog: {fileID: 2656084273949149881, guid: 3c1955d49c1ca5f4a9187aec15899f81, type: 3}
+  prevEffectVol: 0
+  prevMusicVol: 0
 --- !u!1 &1615863658220340592
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +370,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.6901961, g: 0.12941177, b: 0, a: 0.19607843}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.6901961, g: 0.12941177, b: 0, a: 0.19607843}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.46226418, g: 0.35090637, b: 0.1194909, a: 0.35686275}
     m_ColorMultiplier: 5
     m_FadeDuration: 0.1
   m_SpriteState:
