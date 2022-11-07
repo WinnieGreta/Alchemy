@@ -17,6 +17,8 @@ public class NewGameDiailogController : MonoBehaviour
 
     public void NewGameDialogYes()
     {
+        AudioManager.instance.StopMusic("MainMenu");
+        AudioManager.instance.PlayMusic("LabAmbience");
         SceneManager.LoadScene(_newGameLevel);
     }
 

@@ -62,12 +62,20 @@ public class AudioManager : MonoBehaviour
         m.source.Play();
     }
 
-    public void StopMusic()
+    public void StopMusic(string name)
     {
         if (shouldPlayMusic == true)
         {
             shouldPlayMusic = false;
         }
+
+        Sound m = Array.Find(music, music => music.name == name);
+        if (m == null)
+        {
+            Debug.LogError("Unable to stop music " + name);
+            return;
+        }
+        m.source.Stop();
     }
 
     public void MusicVolumeChanged()
