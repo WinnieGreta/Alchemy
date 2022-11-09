@@ -876,9 +876,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af305f42786a6d540a8d07ae2ab9fb9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookcaseScript: {fileID: 856272039}
-  tableScript: {fileID: 1211844049}
-  cauldronScript: {fileID: 1447696607}
+  BookcaseScript: {fileID: 856272039}
+  TableScript: {fileID: 1211844049}
+  CauldronScript: {fileID: 1447696607}
 --- !u!1 &1205041412
 GameObject:
   m_ObjectHideFlags: 0

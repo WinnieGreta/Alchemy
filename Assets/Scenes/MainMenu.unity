@@ -719,14 +719,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e243dc8f5b6752244a70a3e730ff1cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _newGameLevel: 
+  _newGameLevel: AlchemyLab
   newGameDialog: {fileID: 2426521105395751056, guid: b08605eb84a80494ea1c7c56740ba9f7, type: 3}
   optionsDialog: {fileID: 1615863657808123004, guid: 16c038bc23eba2c44bd19cc104aa015b, type: 3}
   newGameButton: {fileID: 741741555}
   continueGameButton: {fileID: 1512113786}
   optionsButton: {fileID: 2053757912}
   exitButton: {fileID: 12837542}
-  gameExists: 0
+  gameExists: 1
 --- !u!1 &1163595074
 GameObject:
   m_ObjectHideFlags: 0

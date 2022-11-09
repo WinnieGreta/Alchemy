@@ -6,33 +6,37 @@ public class LabController : MonoBehaviour
 {
     [Header("Active Areas Scripts")]
     [SerializeField]
-    private ActiveAreasLightUp bookcaseScript;
+    private ActiveAreasLightUp BookcaseScript;
     [SerializeField]
-    private ActiveAreasLightUp tableScript;
+    private ActiveAreasLightUp TableScript;
     [SerializeField]
-    private ActiveAreasLightUp cauldronScript;
+    private ActiveAreasLightUp CauldronScript;
 
     private void BookcaseClicked()
     {
         Debug.Log("Bookcase clicked from controller");
+        //BookcaseScript.objectClicked -= BookcaseClicked;
     }
 
     public void TableClicked()
     {
         Debug.Log("Table clicked from controller");
-        //FindObjectOfType<ActiveAreasLightUp>().objectClicked -= TableClicked;
+        //TableScript.objectClicked -= TableClicked;
     }
 
     private void CauldronClicked()
     {
         Debug.Log("Cauldron clicked from controller");
+        //CauldronScript.objectClicked -= CauldronClicked;
     }
 
     void Start()
     {
+        AudioManager.instance.PlayMusic("LabAmbience");
+
         //FindObjectOfType<ActiveAreasLightUp>().objectClicked += TableClicked;
-        bookcaseScript.objectClicked += BookcaseClicked;
-        tableScript.objectClicked += TableClicked;
-        cauldronScript.objectClicked += CauldronClicked;
+        BookcaseScript.objectClicked += BookcaseClicked;
+        TableScript.objectClicked += TableClicked;
+        CauldronScript.objectClicked += CauldronClicked;
     }
 }

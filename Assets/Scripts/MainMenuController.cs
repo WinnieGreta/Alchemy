@@ -32,11 +32,20 @@ public class MainMenuController : MonoBehaviour
 
     public void NewGameButtonClick()
     {
-        //new game dialog should be instantiated if game already exists
-        AudioManager.instance.PlaySound("ButtonPress");
-        GameObject newDialog = Instantiate(newGameDialog, new Vector3(0, 0, 0), Quaternion.identity);
-        newDialog.transform.SetParent(GameObject.Find("Popout Dialog Container").transform, false);
-        newGameDialog.SetActive(true);
+        //new game dialog should only be instantiated if game already exists
+
+        if (gameExists)
+        {
+            AudioManager.instance.PlaySound("ButtonPress");
+            GameObject newDialog = Instantiate(newGameDialog, new Vector3(0, 0, 0), Quaternion.identity);
+            newDialog.transform.SetParent(GameObject.Find("Popout Dialog Container").transform, false);
+            newGameDialog.SetActive(true);
+        }
+        else
+        {
+            AudioManager.instance.StopMusic("MainMenu");
+            SceneManager.LoadScene(_newGameLevel);
+        }
     }
 
     public void OptionsButtonClick()
