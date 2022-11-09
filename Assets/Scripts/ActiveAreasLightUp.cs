@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,10 +14,24 @@ public class ActiveAreasLightUp : MonoBehaviour
     [SerializeField]
     private Sprite activeSprite;
 
+    public event Action objectClicked;
+
     public void OnMouseEnter()
     {
         //Debug.Log("Enter");
         spriteRenderer.sprite = activeSprite;
+    }
+
+    public void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            //Debug.Log(name + " clicked");
+            if(objectClicked != null)
+            {
+                objectClicked();
+            }
+        }
     }
 
     public void OnMouseExit()

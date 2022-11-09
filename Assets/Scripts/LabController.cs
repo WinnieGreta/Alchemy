@@ -4,31 +4,35 @@ using UnityEngine;
 
 public class LabController : MonoBehaviour
 {
-    [Header("Active Areas")]
+    [Header("Active Areas Scripts")]
     [SerializeField]
-    private GameObject bookcase;
+    private ActiveAreasLightUp bookcaseScript;
     [SerializeField]
-    private GameObject table;
+    private ActiveAreasLightUp tableScript;
     [SerializeField]
-    private GameObject cauldron;
+    private ActiveAreasLightUp cauldronScript;
 
     private void BookcaseClicked()
     {
-        Debug.Log("Bookcase clicked");
+        Debug.Log("Bookcase clicked from controller");
     }
 
-    private void TableClicked()
+    public void TableClicked()
     {
-        Debug.Log("Table clicked");
+        Debug.Log("Table clicked from controller");
+        //FindObjectOfType<ActiveAreasLightUp>().objectClicked -= TableClicked;
     }
 
     private void CauldronClicked()
     {
-        Debug.Log("Cauldron clicked");
+        Debug.Log("Cauldron clicked from controller");
     }
 
-    void Update()
+    void Start()
     {
-        
+        //FindObjectOfType<ActiveAreasLightUp>().objectClicked += TableClicked;
+        bookcaseScript.objectClicked += BookcaseClicked;
+        tableScript.objectClicked += TableClicked;
+        cauldronScript.objectClicked += CauldronClicked;
     }
 }
