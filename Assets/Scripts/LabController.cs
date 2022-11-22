@@ -12,10 +12,18 @@ public class LabController : MonoBehaviour
     [SerializeField]
     private ActiveAreasLightUp CauldronScript;
 
+    [Header("Active Areas To Open")]
+    [SerializeField]
+    private GameObject bookPrefab;
+
     private void BookcaseClicked()
     {
         Debug.Log("Bookcase clicked from controller");
         //BookcaseScript.objectClicked -= BookcaseClicked;
+        GameObject openedBook = Instantiate(bookPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        openedBook.transform.SetParent(GameObject.Find("Canvas").transform, false);
+        openedBook.transform.SetSiblingIndex(0);
+        bookPrefab.SetActive(true);
     }
 
     public void TableClicked()

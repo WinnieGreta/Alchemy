@@ -16,7 +16,10 @@ public class BookController : MonoBehaviour
     [SerializeField]
     private GameObject closeButton;
 
-    private int pageNum = 0;
+    [Header("Table Of Contents")]
+    public Button[] tableOfContents;
+
+    public int pageNum;
 
     private void ChangePage(int newNum)
     {
@@ -60,15 +63,34 @@ public class BookController : MonoBehaviour
 
     private void CloseButtonClicked()
     {
-        Debug.Log("Book Closed");
+        PlayerPrefs.SetInt("PageNumber", pageNum);
+        //Debug.Log("Book Closed");
+        Destroy(transform.parent.gameObject);
+    }
+
+    private void TableOfContentsClicked(int i)
+    {
+        ChangePage(i);
+        Debug.Log(i);
+        AdjustBookmarkButtons();
     }
 
     // Start is called before the first frame update
     void Awake()
     {
-        prevButton.GetComponentInChildren<Button>().onClick.AddListener(PrevButtonClicked);
-        nextButton.GetComponentInChildren<Button>().onClick.AddListener(NextButtonClicked);
-        closeButton.GetComponentInChildren<Button>().onClick.AddListener(CloseButtonClicked);
+        prevButton.GetComponent<Button>().onClick.AddListener(PrevButtonClicked);
+        nextButton.GetComponent<Button>().onClick.AddListener(NextButtonClicked);
+        closeButton.GetComponent<Button>().onClick.AddListener(CloseButtonClicked);
+
+        for(int i = 0; i < tableOfContents.Length; i++)
+        {
+            // doesen't work without a copy of a variable inside the loop
+            // because clousures duh https://csharpindepth.com/Articles/Closures
+            int closureIndex = i;
+            tableOfContents[closureIndex].GetComponent<Button>().onClick.AddListener(delegate { TableOfContentsClicked(closureIndex + 1); });
+        }
+
+        pageNum = PlayerPrefs.GetInt("PageNumber", 0);
 
         for (int i = 0; i < pages.Length; i++)
         {
