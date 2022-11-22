@@ -52,12 +52,14 @@ public class BookController : MonoBehaviour
     private void PrevButtonClicked()
     {
         ChangePage(pageNum - 1);
+        AudioManager.instance.PlaySound("BookPrev");
         AdjustBookmarkButtons();
     }
     
     private void NextButtonClicked()
     {
         ChangePage(pageNum + 1);
+        AudioManager.instance.PlaySound("BookNext");
         AdjustBookmarkButtons();
     }
 
@@ -65,13 +67,14 @@ public class BookController : MonoBehaviour
     {
         PlayerPrefs.SetInt("PageNumber", pageNum);
         //Debug.Log("Book Closed");
+        AudioManager.instance.PlaySound("BookClose");
         Destroy(transform.parent.gameObject);
     }
 
     private void TableOfContentsClicked(int i)
     {
         ChangePage(i);
-        Debug.Log(i);
+        AudioManager.instance.PlaySound("BookNext");
         AdjustBookmarkButtons();
     }
 

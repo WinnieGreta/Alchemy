@@ -20,6 +20,7 @@ public class LabController : MonoBehaviour
     {
         Debug.Log("Bookcase clicked from controller");
         //BookcaseScript.objectClicked -= BookcaseClicked;
+        AudioManager.instance.PlaySound("BookOpen");
         GameObject openedBook = Instantiate(bookPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         openedBook.transform.SetParent(GameObject.Find("Canvas").transform, false);
         openedBook.transform.SetSiblingIndex(0);

@@ -12,6 +12,7 @@ public class PanelButtonClose : MonoBehaviour
         
         PlayerPrefs.SetInt("PageNumber", controller.pageNum);
         Debug.Log("Panel Clicked");
+        AudioManager.instance.PlaySound("BookClose");
         Destroy(transform.parent.gameObject);
     }
 

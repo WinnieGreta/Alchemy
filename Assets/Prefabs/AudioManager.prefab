@@ -68,6 +68,30 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: BookOpen
+    clip: {fileID: 8300000, guid: 530c28bf3be349d4c96dd3b18cb4358d, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: BookNext
+    clip: {fileID: 8300000, guid: 2b5496bc505102a49af23bd51e70922c, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: BookPrev
+    clip: {fileID: 8300000, guid: 9b20e36fbb6083b46854e2190d64bc4e, type: 3}
+    volume: 0.645
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: BookClose
+    clip: {fileID: 8300000, guid: d8c9796fbff49f24082a1fab2f0c6a82, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
   music:
   - name: MainMenu
     clip: {fileID: 8300000, guid: 2b44924fcc147a140aa8197ce9859b23, type: 3}
